@@ -1,16 +1,23 @@
 def my_select(collection)
  # your code here!
-  output = []
+  if collection.empty?
+    raise "This Block should not run!"
+  else
 
-  i = 0
-  while i < collection
+    output = []
 
-    is_item_selected = yield(collection[i])
+    i = 0
+    while i < collection
 
-    output << is_item_selected if is_item_selected
+      is_item_selected = yield(collection[i])
 
-    i += 1
+      output << is_item_selected if is_item_selected
+
+      i += 1
+    end
+
+    output
+
+
   end
-
-  output
 end
